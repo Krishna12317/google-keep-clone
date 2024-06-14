@@ -1,24 +1,18 @@
 import React, { useCallback } from "react";
+import { MdCheckBox, MdCheckBoxOutlineBlank } from "react-icons/md";
+import { useTranslation } from "react-i18next";
 import {
   StyledItemContainer,
   StyledCheckboxIcon,
   StyledTodoItemInput,
   StyledDeleteIcon,
 } from "../../styles";
-import { MdCheckBox, MdCheckBoxOutlineBlank } from "react-icons/md";
-
-interface TodoItemProps {
-  id: number;
-  text: string;
-  completed: boolean;
-  onToggle: (id: number) => void;
-  onDelete: (id: number) => void;
-  onTextChange: (id: number, text: string) => void;
-  inputRef?: React.RefObject<HTMLInputElement>;
-}
+import { TodoItemProps } from "./types";
 
 const TodoItem: React.FC<TodoItemProps> = React.memo(
   ({ id, text, completed, onToggle, onDelete, onTextChange, inputRef }) => {
+    const { t: translate } = useTranslation();
+
     const handleToggle = useCallback(() => {
       onToggle(id);
     }, [id, onToggle]);
@@ -46,7 +40,10 @@ const TodoItem: React.FC<TodoItemProps> = React.memo(
           onChange={handleChange}
           ref={inputRef}
         />
-        <StyledDeleteIcon onClick={handleDelete} />
+        <StyledDeleteIcon
+          title={translate("deleteItemBtn")}
+          onClick={handleDelete}
+        />
       </StyledItemContainer>
     );
   }

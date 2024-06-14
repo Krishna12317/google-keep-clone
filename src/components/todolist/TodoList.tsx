@@ -5,6 +5,8 @@ import React, {
   useMemo,
   useState,
 } from "react";
+import { useTranslation } from "react-i18next";
+import { MdExpandMore, MdExpandLess } from "react-icons/md";
 import {
   StyledTodoContainer,
   StyledSection,
@@ -15,29 +17,8 @@ import {
   StyledAddIcon,
   StyledExpandIcon,
 } from "../../styles";
-import { MdExpandMore, MdExpandLess } from "react-icons/md";
+import { Todo, Action, TodoListProps } from "./types";
 import TodoItem from "./TodoItem";
-
-interface Todo {
-  id: number;
-  text: string;
-  completed: boolean;
-}
-
-interface TodoListProps {
-  todos: Todo[];
-  onAdd: () => number;
-  onToggle: (id: number) => void;
-  onDelete: (id: number) => void;
-  onTextChange: (id: number, text: string) => void;
-}
-
-export type Action =
-  | { type: "ADD_TODO"; payload: { id: number } }
-  | { type: "TOGGLE_TODO"; payload: { id: number } }
-  | { type: "DELETE_TODO"; payload: { id: number } }
-  | { type: "CHANGE_TODO_TEXT"; payload: { id: number; text: string } }
-  | { type: "CLEAR_TODOS" };
 
 export const initialState: Todo[] = [];
 
@@ -76,6 +57,7 @@ const TodoList: React.FC<TodoListProps> = ({
   const [focusOnNewTodo, setFocusOnNewTodo] = useState(false);
   const [isCompletedCollapsed, setIsCompletedCollapsed] = useState(false);
   const newTodoRef = useRef<HTMLInputElement>(null);
+  const { t: translate } = useTranslation();
 
   const handleFocus = useCallback(() => {
     const id = onAdd(); // Add todo and get its id
@@ -124,7 +106,7 @@ const TodoList: React.FC<TodoListProps> = ({
         <StyledAddIcon onClick={handleFocus} />
         <StyledTodoInput
           type="text"
-          placeholder="Take a note..."
+          placeholder={translate("addTodo")}
           onFocus={handleFocus}
           readOnly
         />
