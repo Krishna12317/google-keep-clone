@@ -2,7 +2,6 @@ import styled from "styled-components";
 import { MdAdd } from "react-icons/md";
 
 export const StyledTodoContainer = styled.div`
-  max-width: 600px;
   margin: 20px auto;
   font-family: "Roboto", sans-serif;
 `;
