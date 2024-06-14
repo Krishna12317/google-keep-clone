@@ -2,7 +2,6 @@ export const initialColorPalette = [
     {
         name: 'white',
         code: "#ffffff"
-
     },
     {
         name: 'light-blue-gray',

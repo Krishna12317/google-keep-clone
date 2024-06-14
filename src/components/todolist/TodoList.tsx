@@ -17,8 +17,8 @@ import {
   StyledAddIcon,
   StyledExpandIcon,
 } from "../../styles";
-import { Todo, Action, TodoListProps } from "./types";
 import TodoItem from "./TodoItem";
+import { Todo, Action, TodoListProps } from "./types";
 
 export const initialState: Todo[] = [];
 
@@ -60,16 +60,16 @@ const TodoList: React.FC<TodoListProps> = ({
   const { t: translate } = useTranslation();
 
   const handleFocus = useCallback(() => {
-    const id = onAdd(); // Add todo and get its id
+    const id = onAdd();
     if (id) {
-      setFocusOnNewTodo(true); // Set focus state to true after adding new todo
+      setFocusOnNewTodo(true);
     }
   }, [onAdd]);
 
   useEffect(() => {
     if (focusOnNewTodo && newTodoRef.current) {
       newTodoRef.current.focus();
-      setFocusOnNewTodo(false); // Reset focus state after focusing
+      setFocusOnNewTodo(false);
     }
   }, [focusOnNewTodo]);
 

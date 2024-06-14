@@ -10,7 +10,7 @@ import {
   StyledNoteTextArea,
   StyledNoteTitle,
   StyledPinButton,
-  StyledDeleteButton, // Assuming you have a styled component for the delete button
+  StyledDeleteButton,
 } from "../../styles";
 
 const DraggableNote: React.FC<DragableNoteProps> = React.memo(
@@ -95,7 +95,7 @@ const DraggableNote: React.FC<DragableNoteProps> = React.memo(
           </StyledNoteList>
         );
       }
-    }, [note.content, handleCheckbox]);
+    }, [note.content, note.id, handleCheckbox]);
 
     return (
       <StyledNoteItem

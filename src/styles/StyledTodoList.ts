@@ -3,7 +3,6 @@ import { MdAdd } from "react-icons/md";
 
 export const StyledTodoContainer = styled.div`
   margin: 20px auto;
-  font-family: "Roboto", sans-serif;
 `;
 
 export const StyledSection = styled.div`
