@@ -6,5 +6,10 @@
     "addList": "Ajouter une note à la liste",
     "addNote": "Prendre note...",
     "colorPicker": "Pipette à couleurs",
-    "addNoteButton": "Ajouter une note"
+    "close": "Fermer",
+    "addNoteBtn": "Ajouter une note",
+    "addTodo": "Ajouter un élément de liste",
+    "deleteItemBtn": "Supprimer",
+    "unPinBtn": "Détacher",
+    "pinBtn": "Épingle"
 }

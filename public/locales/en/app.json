@@ -5,5 +5,11 @@
     "notes": "Added Notes",
     "addList": "Add List Note",
     "addNote": "Take a note...",
-    "colorPicker": "Color Picker"
+    "colorPicker": "Color Picker",
+    "close": "Close",
+    "addNoteBtn": "Add Note",
+    "addTodo": "Add List Item",
+    "deleteItemBtn": "Delete",
+    "unPinBtn": "Unpin",
+    "pinBtn": "Pin"
 }
