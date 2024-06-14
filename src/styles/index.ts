@@ -17,3 +17,7 @@ export * from './StyledTodoItem';
 export * from './StyledTodoList';
 export * from './StyledNoteListWrapper';
 export * from './StyledNoteList';
+export * from './StyledEmptyNoteContainer';
+export * from './StyledDeleteNoteBtn';
+
+
