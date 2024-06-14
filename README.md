@@ -2,29 +2,76 @@
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
+# Google Keep Clone
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+This project is a clone of Google Keep, a note-taking web application, built using React, TypeScript, and other libraries.
 
-## Expanding the ESLint configuration
+## Dependencies
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- [i18next](https://www.npmjs.com/package/i18next): Internationalization framework for handling translations.
+- [react](https://reactjs.org/): JavaScript library for building user interfaces.
+- [react-dnd](https://www.npmjs.com/package/react-dnd): Drag and Drop for React.
+- [react-dnd-html5-backend](https://www.npmjs.com/package/react-dnd-html5-backend): HTML5 backend for React DnD.
+- [react-dom](https://reactjs.org/docs/react-dom.html): Entry point to the DOM and server renderers for React.
+- [react-i18next](https://www.npmjs.com/package/react-i18next): Internationalization for React based on i18next.
+- [react-icons](https://react-icons.github.io/react-icons/): Popular icons for React projects.
+- [styled-components](https://styled-components.com/): CSS-in-JS library for styling React components.
+- [typescript](https://www.typescriptlang.org/): Typed JavaScript at Any Scale.
+- [vite](https://vitejs.dev/): Fast, modern development environment for React.
 
-- Configure the top-level `parserOptions` property like this:
+## Scripts
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+### Development
+
+To start the development server:
+
+```bash
+yarn dev
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+### Building
+
+To build the project for production:
+
+```bash
+yarn build
+```
+
+### Linting
+
+To check and fix linting errors:
+
+```bash
+yarn lint
+```
+
+### Preview
+
+To preview the built project locally:
+
+```bash
+yarn preview
+```
+
+## Getting Started
+
+### 1. Clone the repository:
+
+```bash
+git clone https://github.com/your/repository.git
+cd google-keep-clone
+```
+
+### 2. Install dependencies
+
+```bash
+yarn install
+```
+
+### 3. Start the development server:
+
+```bash
+yarn dev
+```
+
+- Open http://localhost:5173 to view it in the browser.
