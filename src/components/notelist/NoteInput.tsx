@@ -96,6 +96,7 @@ const NoteInput: React.FC<{ onAddNote: AddNoteFunction }> = ({ onAddNote }) => {
         setTextContent("");
         setShowAddTask(false);
         setIsTextNote(true);
+        setColorTask("#ffffff");
       }
     },
     [isTextNote, todos, title, textContent, colorTask, onAddNote, clearTodos]
@@ -104,8 +105,10 @@ const NoteInput: React.FC<{ onAddNote: AddNoteFunction }> = ({ onAddNote }) => {
   const closeNoteHandler = useCallback(() => {
     setShowAddTask(false);
     setIsTextNote(true);
+    setTextContent("");
     setColorTask("#ffffff");
-  }, []);
+    !isTextNote && clearTodos();
+  }, [clearTodos, isTextNote]);
 
   const handleColorButtonClick = useCallback(() => {
     setShowColorPalette((prev) => !prev);

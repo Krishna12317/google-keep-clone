@@ -72,7 +72,7 @@ const DraggableNote: React.FC<DragableNoteProps> = React.memo(
 
     const noteContent = useMemo(() => {
       if (typeof note.content === "string") {
-        return <StyledNoteTextArea value={note.content} />;
+        return <StyledNoteTextArea onChange={() => {}} value={note.content} />;
       } else {
         return (
           <StyledNoteList>
