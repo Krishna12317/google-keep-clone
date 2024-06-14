@@ -1,6 +1,7 @@
 import React, { useRef, useCallback, useMemo } from "react";
 import { useDrag, useDrop } from "react-dnd";
-import { MdPinDrop, MdOutlinePinDrop } from "react-icons/md";
+import { MdPinDrop, MdOutlinePinDrop, MdDelete } from "react-icons/md";
+import { useTranslation } from "react-i18next";
 import { DragableNoteProps } from "./types";
 import {
   StyledNoteContent,
@@ -9,15 +10,30 @@ import {
   StyledNoteTextArea,
   StyledNoteTitle,
   StyledPinButton,
+  StyledDeleteButton, // Assuming you have a styled component for the delete button
 } from "../../styles";
 
 const DraggableNote: React.FC<DragableNoteProps> = React.memo(
-  ({ index, note, moveNote, togglePin, isPinned, handleCheckboxChange }) => {
+  ({
+    index,
+    note,
+    moveNote,
+    togglePin,
+    isPinned,
+    handleCheckboxChange,
+    deleteNote,
+  }) => {
     const ref = useRef<HTMLDivElement>(null);
+
+    const { t: translate } = useTranslation();
 
     const handleTogglePin = useCallback(() => {
       togglePin(note);
     }, [togglePin, note]);
+
+    const handleDeleteNote = useCallback(() => {
+      deleteNote(note.id);
+    }, [deleteNote, note.id]);
 
     const handleCheckbox = useCallback(
       (noteId: number, itemId: number) => {
@@ -88,8 +104,15 @@ const DraggableNote: React.FC<DragableNoteProps> = React.memo(
         style={{ opacity: isDragging ? 0.5 : 1 }}
       >
         <StyledPinButton onClick={handleTogglePin}>
-          {isPinned ? <MdPinDrop /> : <MdOutlinePinDrop />}
+          {isPinned ? (
+            <MdPinDrop title={translate("unPinBtn")} />
+          ) : (
+            <MdOutlinePinDrop title={translate("pinBtn")} />
+          )}
         </StyledPinButton>
+        <StyledDeleteButton onClick={handleDeleteNote}>
+          <MdDelete title={translate("deleteItemBtn")} />
+        </StyledDeleteButton>
         <StyledNoteTitle>{note.title}</StyledNoteTitle>
         {noteContent}
       </StyledNoteItem>

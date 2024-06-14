@@ -27,4 +27,5 @@ export interface DragableNoteProps {
     togglePin: (note: Note) => void;
     isPinned: boolean;
     handleCheckboxChange: (noteId: number, itemId: number) => void;
+    deleteNote: (noteId: number) => void;
 }

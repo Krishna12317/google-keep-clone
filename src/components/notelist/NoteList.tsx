@@ -35,6 +35,14 @@ const NoteList: React.FC<NoteListProps> = React.memo(
       [notes, setNotes]
     );
 
+    const deleteNote = useCallback(
+      (noteId: number) => {
+        const updatedNotes = notes.filter((note) => note.id !== noteId);
+        setNotes(updatedNotes);
+      },
+      [notes, setNotes]
+    );
+
     return (
       <>
         <h4>{title}</h4>
@@ -48,6 +56,7 @@ const NoteList: React.FC<NoteListProps> = React.memo(
               togglePin={togglePin}
               isPinned={isPinned}
               handleCheckboxChange={handleCheckboxChange}
+              deleteNote={deleteNote}
             />
           ))}
         </StyledNoteListWrapper>
