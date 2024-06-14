@@ -33,7 +33,7 @@ const NoteInput: React.FC<{ onAddNote: AddNoteFunction }> = ({ onAddNote }) => {
   const [textContent, setTextContent] = useState("");
   const [todos, dispatchTodoAction] = useReducer(todoReducer, initialState);
   const [isTextNote, setIsTextNote] = useState(true);
-  const { t } = useTranslation();
+  const { t: translate } = useTranslation();
 
   const colorPaletteRef = useRef<HTMLDivElement>(null);
 
@@ -172,7 +172,7 @@ const NoteInput: React.FC<{ onAddNote: AddNoteFunction }> = ({ onAddNote }) => {
           <StyledTextArea
             showAddTask={showAddTask}
             name="description"
-            placeholder={t("addNote")}
+            placeholder={translate("addNote")}
             value={textContent}
             onFocus={handleFocusTextArea}
             onChange={(e) => setTextContent(e.target.value)}
@@ -190,35 +190,37 @@ const NoteInput: React.FC<{ onAddNote: AddNoteFunction }> = ({ onAddNote }) => {
         )}
         {!showAddTask && (
           <StyledDiv>
-            <StyledButton title={t("addList")} onClick={toggleListNote}>
+            <StyledButton title={translate("addList")} onClick={toggleListNote}>
               ☑️
             </StyledButton>
           </StyledDiv>
         )}
         {showAddTask && (
-          <StyledFlexRowDiv>
-            <StyledColorPaletteContainer ref={colorPaletteRef}>
-              <StyledColorButton
-                title={t("colorPicker")}
-                onClick={handleColorButtonClick}
-              >
-                🎨
-              </StyledColorButton>
-              {showColorPalette && memoizedColorPalette}
-            </StyledColorPaletteContainer>
-            <StyledButtonGroup>
-              <StyledButton
-                title={t("close")}
-                type="button"
-                onClick={closeNoteHandler}
-              >
-                Close
-              </StyledButton>
-              <StyledButton title={t("addNoteButton")} type="submit">
-                Add a note
-              </StyledButton>
-            </StyledButtonGroup>
-          </StyledFlexRowDiv>
+          <>
+            <StyledFlexRowDiv>
+              <StyledButtonGroup>
+                <StyledColorPaletteContainer ref={colorPaletteRef}>
+                  <StyledColorButton
+                    title={translate("colorPicker")}
+                    onClick={handleColorButtonClick}
+                  >
+                    🎨
+                  </StyledColorButton>
+                  {showColorPalette && memoizedColorPalette}
+                </StyledColorPaletteContainer>
+                <StyledButton
+                  title={translate("close")}
+                  type="button"
+                  onClick={closeNoteHandler}
+                >
+                  Close
+                </StyledButton>
+                <StyledButton title={translate("addNoteBtn")} type="submit">
+                  Add a note
+                </StyledButton>
+              </StyledButtonGroup>
+            </StyledFlexRowDiv>
+          </>
         )}
       </StyledTaskForm>
     </StyledContainer>
