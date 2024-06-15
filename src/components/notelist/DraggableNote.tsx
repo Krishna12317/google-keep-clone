@@ -1,17 +1,15 @@
-import React, { useRef, useCallback, useMemo } from "react";
+import React, { useRef, useCallback } from "react";
 import { useDrag, useDrop } from "react-dnd";
 import { MdPinDrop, MdOutlinePinDrop, MdDelete } from "react-icons/md";
 import { useTranslation } from "react-i18next";
 import { DragableNoteProps } from "./types";
 import {
-  StyledNoteContent,
   StyledNoteItem,
-  StyledNoteList,
-  StyledNoteTextArea,
   StyledNoteTitle,
   StyledPinButton,
   StyledDeleteButton,
 } from "../../styles";
+import NoteContent from "./NoteContent";
 
 const DraggableNote: React.FC<DragableNoteProps> = React.memo(
   ({
@@ -70,33 +68,6 @@ const DraggableNote: React.FC<DragableNoteProps> = React.memo(
 
     drag(drop(ref));
 
-    const noteContent = useMemo(() => {
-      if (typeof note.content === "string") {
-        return <StyledNoteTextArea onChange={() => {}} value={note.content} />;
-      } else {
-        return (
-          <StyledNoteList>
-            {note.content.map((item) => (
-              <StyledNoteContent as="li" key={item.id}>
-                <input
-                  type="checkbox"
-                  checked={item.completed}
-                  onChange={() => handleCheckbox(note.id, item.id)}
-                />
-                <span
-                  style={{
-                    textDecoration: item.completed ? "line-through" : "none",
-                  }}
-                >
-                  {item.text}
-                </span>
-              </StyledNoteContent>
-            ))}
-          </StyledNoteList>
-        );
-      }
-    }, [note.content, note.id, handleCheckbox]);
-
     return (
       <StyledNoteItem
         ref={ref}
@@ -114,7 +85,7 @@ const DraggableNote: React.FC<DragableNoteProps> = React.memo(
           <MdDelete title={translate("deleteItemBtn")} />
         </StyledDeleteButton>
         <StyledNoteTitle>{note.title}</StyledNoteTitle>
-        {noteContent}
+        <NoteContent note={note} handleCheckbox={handleCheckbox} />
       </StyledNoteItem>
     );
   }

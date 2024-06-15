@@ -29,3 +29,13 @@ export interface DragableNoteProps {
     handleCheckboxChange: (noteId: number, itemId: number) => void;
     deleteNote: (noteId: number) => void;
 }
+
+export interface INoteContentProps {
+    note: Note;
+    handleCheckbox: (noteId: number, itemId: number) => void;
+}
+
+export interface INoteItemProps {
+    items: ListItem[],
+    handleCheckbox: (noteId: number, itemId: number) => void, noteId: number
+}
