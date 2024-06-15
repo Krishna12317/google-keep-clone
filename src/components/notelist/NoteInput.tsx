@@ -7,7 +7,7 @@ import React, {
   useMemo,
 } from "react";
 import { useTranslation } from "react-i18next";
-import { AddNoteFunction, Note } from "./types";
+import { AddNoteFunction, INote } from "./types";
 import {
   StyledContainer,
   StyledTaskForm,
@@ -77,7 +77,7 @@ const NoteInput: React.FC<{ onAddNote: AddNoteFunction }> = ({ onAddNote }) => {
     (e: React.FormEvent) => {
       e.preventDefault();
       if (textContent !== "" || todos.length > 0) {
-        const noteData: Note = {
+        const noteData: INote = {
           id: Date.now(),
           title: title,
           type: isTextNote ? "text" : "list",

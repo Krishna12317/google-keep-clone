@@ -1,4 +1,4 @@
-export interface TodoItemProps {
+export interface ITodoItemProps {
     id: number;
     text: string;
     completed: boolean;
@@ -9,14 +9,14 @@ export interface TodoItemProps {
 }
 
 
-export interface Todo {
+export interface ITodo {
     id: number;
     text: string;
     completed: boolean;
 }
 
-export interface TodoListProps {
-    todos: Todo[];
+export interface ITodoListProps {
+    todos: ITodo[];
     onAdd: () => number;
     onToggle: (id: number) => void;
     onDelete: (id: number) => void;

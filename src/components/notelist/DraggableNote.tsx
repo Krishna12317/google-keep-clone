@@ -2,7 +2,7 @@ import React, { useRef, useCallback, useMemo } from "react";
 import { useDrag, useDrop } from "react-dnd";
 import { MdPinDrop, MdOutlinePinDrop, MdDelete } from "react-icons/md";
 import { useTranslation } from "react-i18next";
-import { DragableNoteProps } from "./types";
+import { IDragableNoteProps } from "./types";
 import {
   StyledNoteContent,
   StyledNoteItem,
@@ -13,7 +13,7 @@ import {
   StyledDeleteButton,
 } from "../../styles";
 
-const DraggableNote: React.FC<DragableNoteProps> = React.memo(
+const DraggableNote: React.FC<IDragableNoteProps> = React.memo(
   ({
     index,
     note,
