@@ -1,10 +1,10 @@
 import React, { useCallback } from "react";
-import { NoteListProps } from "./types";
-import { ListItem } from "../../types";
+import { INoteListProps } from "./types";
+import { IListItem } from "../../types";
 import DraggableNote from "./DraggableNote";
 import { StyledNoteListWrapper } from "../../styles";
 
-const NoteList: React.FC<NoteListProps> = React.memo(
+const NoteList: React.FC<INoteListProps> = React.memo(
   ({ title, notes, setNotes, togglePin, isPinned }) => {
     const moveNote = useCallback(
       (dragIndex: number, hoverIndex: number) => {
@@ -21,7 +21,7 @@ const NoteList: React.FC<NoteListProps> = React.memo(
       (noteId: number, itemId: number) => {
         const updatedNotes = notes.map((note) => {
           if (note.id === noteId && note.content.length) {
-            const updatedContent = (note.content as ListItem[]).map((item) =>
+            const updatedContent = (note.content as IListItem[]).map((item) =>
               item.id === itemId
                 ? { ...item, completed: !item.completed }
                 : item

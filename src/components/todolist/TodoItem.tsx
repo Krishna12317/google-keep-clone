@@ -7,9 +7,9 @@ import {
   StyledTodoItemInput,
   StyledDeleteIcon,
 } from "../../styles";
-import { TodoItemProps } from "./types";
+import { ITodoItemProps } from "./types";
 
-const TodoItem: React.FC<TodoItemProps> = React.memo(
+const TodoItem: React.FC<ITodoItemProps> = React.memo(
   ({ id, text, completed, onToggle, onDelete, onTextChange, inputRef }) => {
     const { t: translate } = useTranslation();
 

@@ -1,6 +1,6 @@
 import { render, fireEvent } from "@testing-library/react";
 import NoteList from "./NoteList";
-import { Note } from "./types";
+import { INote } from "./types";
 
 describe("NoteList Component", () => {
   test("should toggle pin when pin button is clicked", () => {
@@ -17,14 +17,14 @@ describe("NoteList Component", () => {
     const { getByTestId } = render(
       <NoteList
         title="Test"
-        notes={[mockNote as Note]}
+        notes={[mockNote as INote]}
         setNotes={() => {}}
         togglePin={togglePinMock}
         isPinned={false}
       />
     );
 
-    const pinButton = getByTestId("pin-button"); // Assuming you have a test ID on the pin button
+    const pinButton = getByTestId("pin-button");
     fireEvent.click(pinButton);
 
     expect(togglePinMock).toHaveBeenCalledTimes(1);
