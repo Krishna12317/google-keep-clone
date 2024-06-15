@@ -1,4 +1,3 @@
-// StyledNoteListContainer.tsx
 import React, { useCallback, useState } from "react";
 import { RiFileList3Line } from "react-icons/ri";
 import { useTranslation } from "react-i18next";
