@@ -19,5 +19,5 @@ export * from './StyledNoteListWrapper';
 export * from './StyledNoteList';
 export * from './StyledEmptyNoteContainer';
 export * from './StyledDeleteNoteBtn';
-
-
+export * from './StyledCheckbox';
+export * from './StyledText';
