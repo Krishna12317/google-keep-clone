@@ -18,11 +18,11 @@ import {
   StyledExpandIcon,
 } from "../../styles";
 import TodoItem from "./TodoItem";
-import { Todo, Action, TodoListProps } from "./types";
+import { ITodo, Action, ITodoListProps } from "./types";
 
-export const initialState: Todo[] = [];
+export const initialState: ITodo[] = [];
 
-export const todoReducer = (state: Todo[], action: Action): Todo[] => {
+export const todoReducer = (state: ITodo[], action: Action): ITodo[] => {
   switch (action.type) {
     case "ADD_TODO":
       return [...state, { id: action.payload.id, text: "", completed: false }];
@@ -47,7 +47,7 @@ export const todoReducer = (state: Todo[], action: Action): Todo[] => {
   }
 };
 
-const TodoList: React.FC<TodoListProps> = ({
+const TodoList: React.FC<ITodoListProps> = ({
   todos,
   onAdd,
   onToggle,

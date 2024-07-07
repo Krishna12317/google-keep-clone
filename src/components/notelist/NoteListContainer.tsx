@@ -1,8 +1,7 @@
-// StyledNoteListContainer.tsx
 import React, { useCallback, useState } from "react";
 import { RiFileList3Line } from "react-icons/ri";
 import { useTranslation } from "react-i18next";
-import { Note } from "../../types";
+import { INote } from "./types";
 import NoteList from "./NoteList";
 import NoteInput from "./NoteInput";
 import {
@@ -11,19 +10,19 @@ import {
 } from "../../styles";
 
 const NoteListContainer: React.FC = () => {
-  const [notes, setNotes] = useState<Note[]>([]);
-  const [pinnedNotes, setPinnedNotes] = useState<Note[]>([]);
+  const [notes, setNotes] = useState<INote[]>([]);
+  const [pinnedNotes, setPinnedNotes] = useState<INote[]>([]);
   const { t: translate } = useTranslation();
 
   const handleAddingNote = useCallback(
-    (note: Note) => {
+    (note: INote) => {
       setNotes([...notes, note]);
     },
     [notes]
   );
 
   const togglePin = useCallback(
-    (note: Note) => {
+    (note: INote) => {
       if (pinnedNotes.includes(note)) {
         setPinnedNotes(pinnedNotes.filter((n) => n !== note));
         setNotes([...notes, note]);

@@ -1,30 +1,30 @@
-import { ListItem } from "../../types";
+import { IListItem } from "../../types";
 
-export type NoteType = "text" | "list";
+export type INoteType = "text" | "list";
 
-export interface Note {
+export interface INote {
     id: number;
     title: string;
-    type: NoteType;
-    content: string | ListItem[];
+    type: INoteType;
+    content: string | IListItem[];
     color: string;
 }
 
-export type AddNoteFunction = (noteData: Note) => void;
+export type AddNoteFunction = (noteData: INote) => void;
 
-export interface NoteListProps {
+export interface INoteListProps {
     title: string;
-    notes: Note[];
-    setNotes: React.Dispatch<React.SetStateAction<Note[]>>;
-    togglePin: (note: Note) => void;
+    notes: INote[];
+    setNotes: React.Dispatch<React.SetStateAction<INote[]>>;
+    togglePin: (note: INote) => void;
     isPinned: boolean;
 }
 
-export interface DragableNoteProps {
+export interface IDragableNoteProps {
     index: number;
-    note: Note;
+    note: INote;
     moveNote: (dragIndex: number, hoverIndex: number) => void;
-    togglePin: (note: Note) => void;
+    togglePin: (note: INote) => void;
     isPinned: boolean;
     handleCheckboxChange: (noteId: number, itemId: number) => void;
     deleteNote: (noteId: number) => void;
